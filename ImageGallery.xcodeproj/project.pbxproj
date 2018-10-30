@@ -54,14 +54,22 @@
 		E977341F2188F6CC009D5401 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
-				E97734202188F6CC009D5401 /* AppDelegate.swift */,
 				E97734222188F6CC009D5401 /* ViewController.swift */,
 				E97734242188F6CC009D5401 /* Main.storyboard */,
-				E97734272188F6CD009D5401 /* Assets.xcassets */,
-				E97734292188F6CD009D5401 /* LaunchScreen.storyboard */,
 				E977342C2188F6CD009D5401 /* Info.plist */,
+				E97734322188F6E4009D5401 /* Supporting Files */,
 			);
 			path = ImageGallery;
+			sourceTree = "<group>";
+		};
+		E97734322188F6E4009D5401 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E97734202188F6CC009D5401 /* AppDelegate.swift */,
+				E97734272188F6CD009D5401 /* Assets.xcassets */,
+				E97734292188F6CD009D5401 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
