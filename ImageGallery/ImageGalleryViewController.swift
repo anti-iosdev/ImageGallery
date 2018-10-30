@@ -13,19 +13,44 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     var emojis = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍓🍈".map { String($0) }
     
+    
+    func randomFloat(_ cap: CGFloat) -> CGFloat {
+        return CGFloat.random(in: 30..<cap)
+    }
+    
+    
     private var font: UIFont {
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(64.0))
+        
+        //let randomFloat = self.randomFloat(64)
+        //imageCellSize2 = CGSize(width: randomFloat, height: randomFloat)
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(randomFloat(64)))
+    }
+    
+    ////////////
+    
+    var imageLayout: Grid.Layout {
+        return Grid.Layout.dimensions(rowCount: emojis.count/2, columnCount: 1)
+    }
+    
+    var imageCellSize: CGSize?
+    
+    var imageGrid: Grid? {
+        didSet {
+            imageCellSize = imageGrid?.cellSize
+        }
     }
     
     @IBOutlet weak var imageCollectionView: UICollectionView! {
         didSet {
             imageCollectionView.dataSource = self
             imageCollectionView.delegate = self
+            
+            imageGrid = Grid(layout: imageLayout, frame: imageCollectionView.bounds)
         }
     }
     
@@ -40,5 +65,11 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
             imageCell.label.attributedText = text
         }
         return cell
+    }
+    
+    var imageCellSize2: CGSize?
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return imageCellSize!
     }
 }

@@ -15,6 +15,7 @@
 		E97734362188F858009D5401 /* ImageGalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97734352188F858009D5401 /* ImageGalleryTableViewController.swift */; };
 		E97734382188FEA9009D5401 /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */; };
 		E977343A218904C1009D5401 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */; };
+		E977343C21890BB3009D5401 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977343B21890BB3009D5401 /* Grid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E97734352188F858009D5401 /* ImageGalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryTableViewController.swift; sourceTree = "<group>"; };
 		E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewController.swift; sourceTree = "<group>"; };
 		E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E977343B21890BB3009D5401 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				E97734242188F6CC009D5401 /* Main.storyboard */,
 				E977342C2188F6CD009D5401 /* Info.plist */,
 				E97734332188F729009D5401 /* Utilities.swift */,
+				E977343B21890BB3009D5401 /* Grid.swift */,
 				E97734352188F858009D5401 /* ImageGalleryTableViewController.swift */,
 				E97734322188F6E4009D5401 /* Supporting Files */,
 			);
@@ -157,6 +160,7 @@
 				E97734382188FEA9009D5401 /* ImageGalleryViewController.swift in Sources */,
 				E97734362188F858009D5401 /* ImageGalleryTableViewController.swift in Sources */,
 				E97734212188F6CC009D5401 /* AppDelegate.swift in Sources */,
+				E977343C21890BB3009D5401 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
