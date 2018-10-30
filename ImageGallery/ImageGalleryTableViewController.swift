@@ -43,16 +43,16 @@ class ImageGalleryTableViewController: UITableViewController
 //        emojiArtDocuments += ["Untitled".madeUnique(withRespectTo: emojiArtDocuments)]
 //        tableView.reloadData()
 //    }
-//    
+//
     
-    /* Commented out from Lecture
-     override func viewDidLayoutSubviews() {
-     super.viewWillLayoutSubviews()
-     if splitViewController?.preferredDisplayMode != .primaryOverlay {
-     splitViewController?.preferredDisplayMode = .primaryOverlay
-     }
-     }
-     */
+
+    override func viewDidLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        if splitViewController?.preferredDisplayMode != .primaryOverlay {
+            splitViewController?.preferredDisplayMode = .primaryOverlay
+        }
+    }
+ 
     
     /*
      // Override to support conditional editing of the table view.
