@@ -16,48 +16,35 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
         
     }
     
+    
     var emojis = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍓🍈".map { String($0) }
     
+
+    // ------------------------------------------------------------------------
+    // imageCollectionView
     
-    func randomFloat(_ cap: CGFloat) -> CGFloat {
-        return CGFloat.random(in: 30..<cap)
-    }
-    
-    
-    private var font: UIFont {
-        
-        //let randomFloat = self.randomFloat(64)
-        //imageCellSize2 = CGSize(width: randomFloat, height: randomFloat)
-        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(randomFloat(64)))
-    }
-    
-    ////////////
-    
-    var imageLayout: Grid.Layout {
-        return Grid.Layout.dimensions(rowCount: emojis.count/2, columnCount: 1)
-    }
-    
-    var imageCellSize: CGSize?
-    
-    var imageGrid: Grid? {
-        didSet {
-            imageCellSize = imageGrid?.cellSize
-        }
-    }
-    
+    // Initializing
     @IBOutlet weak var imageCollectionView: UICollectionView! {
         didSet {
             imageCollectionView.dataSource = self
             imageCollectionView.delegate = self
-            
-            imageGrid = Grid(layout: imageLayout, frame: imageCollectionView.bounds)
         }
     }
+    var width: CGFloat {
+        return (view.frame.width-10)/2
+    }
     
+    
+    // Number of Items
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return emojis.count
     }
     
+    // Setting the Cells
+    private var font: UIFont {
+        let fontSize = width/3
+        return UIFontMetrics(forTextStyle: .body).scaledFont(for: UIFont.preferredFont(forTextStyle: .body).withSize(fontSize))
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "testCell", for: indexPath)
         if let imageCell = cell as? ImageCollectionViewCell {
@@ -66,10 +53,10 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
         }
         return cell
     }
-    
-    var imageCellSize2: CGSize?
-    
+
+    // Size of Cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return imageCellSize!
+        //let width = (view.frame.width-20)/2
+        return CGSize(width: width, height: width)
     }
 }
