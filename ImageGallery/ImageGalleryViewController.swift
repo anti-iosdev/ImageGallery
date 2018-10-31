@@ -86,12 +86,30 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
         return session.canLoadObjects(ofClass: NSAttributedString.self)
     }
     
+    // Animating to make room
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         let isSelf = (session.localDragSession?.localContext as? UICollectionView) == collectionView
         return UICollectionViewDropProposal(operation: isSelf ? .move : .copy, intent: .insertAtDestinationIndexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+    func collectionView(_ collectionView: UICollectionView,
+                        performDropWith coordinator: UICollectionViewDropCoordinator) {
+        let destinationIndexPath = coordinator.destinationIndexPath ?? IndexPath(item: 0, section: 0)
+        for item in coordinator.items {
+            if let sourceIndexPath = item.sourceIndexPath {
+                // drag is coming from self now
+                if let attributedString = item.dragItem.localObject as? NSAttributedString {
+                    // batchupdates are for multiple insertions and deletions
+                    collectionView.performBatchUpdates({
+                        emojis.remove(at: sourceIndexPath.item)
+                        emojis.insert(attributedString.string, at: destinationIndexPath.item)
+                        collectionView.deleteItems(at: [sourceIndexPath])
+                        collectionView.insertItems(at: [destinationIndexPath])
+                    })
+                    coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+                }
+            }
+        }
         
     }
     
