@@ -20,6 +20,8 @@
 		E97734382188FEA9009D5401 /* ImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */; };
 		E977343A218904C1009D5401 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */; };
 		E977343C21890BB3009D5401 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977343B21890BB3009D5401 /* Grid.swift */; };
+		E9E7B9D1218E2E7A00AD0B5F /* iPadProImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E9E7B9D0218E2E7A00AD0B5F /* iPadProImage.jpg */; };
+		E9E7B9D3218E46C500AD0B5F /* stanford.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E9E7B9D2218E46C500AD0B5F /* stanford.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewController.swift; sourceTree = "<group>"; };
 		E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E977343B21890BB3009D5401 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		E9E7B9D0218E2E7A00AD0B5F /* iPadProImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = iPadProImage.jpg; sourceTree = "<group>"; };
+		E9E7B9D2218E46C500AD0B5F /* stanford.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stanford.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */,
 				E97734352188F858009D5401 /* ImageGalleryTableViewController.swift */,
 				E950F64F218BF963009BC018 /* hearthstoneCardback.png */,
+				E9E7B9D0218E2E7A00AD0B5F /* iPadProImage.jpg */,
+				E9E7B9D2218E46C500AD0B5F /* stanford.jpeg */,
 				E97734322188F6E4009D5401 /* Supporting Files */,
 			);
 			path = ImageGallery;
@@ -154,7 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9E7B9D1218E2E7A00AD0B5F /* iPadProImage.jpg in Resources */,
 				E977342B2188F6CD009D5401 /* LaunchScreen.storyboard in Resources */,
+				E9E7B9D3218E46C500AD0B5F /* stanford.jpeg in Resources */,
 				E97734282188F6CD009D5401 /* Assets.xcassets in Resources */,
 				E950F650218BF963009BC018 /* hearthstoneCardback.png in Resources */,
 				E97734262188F6CC009D5401 /* Main.storyboard in Resources */,

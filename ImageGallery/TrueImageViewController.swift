@@ -8,71 +8,78 @@
 
 import UIKit
 
-class TrueImageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
+class TrueImageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDropDelegate
 {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    var images = [UIImage]()
-    
-    var testImage = UIImage()
     
     @IBOutlet weak var imageCollectionView: UICollectionView! {
         didSet {
             imageCollectionView.dataSource = self
             imageCollectionView.delegate = self
+            imageCollectionView.dropDelegate = self
         }
     }
     
+    // MARK: - Establish Model / How many cells will there be?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        temporaryImages()
+        temporaryImages()
+        return imageURLs.count
     }
     
+    var imageURLs = [URL]()
+    
+    let hearthstone = Bundle.main.url(forResource: "hearthstoneCardback", withExtension: "png")
+    let iPadProImage = Bundle.main.url(forResource: "iPadProImage", withExtension: "jpg")
+    let stanford = Bundle.main.url(forResource: "stanford", withExtension: "jpeg")
+
+    
+    func temporaryImages() {
+        if let url1 = hearthstone, let url2 = iPadProImage, let url3 = stanford {
+            imageURLs.append(url1)
+            imageURLs.append(url2)
+            imageURLs.append(url3)
+        }
+    }
+    
+    // MARK: - Use the URLs for each image cell.
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath)
         if let imageCell = cell as? TrueImageCollectionViewCell {
 
-            badFetchImage()
-            //imageCell.image.contentMode = .scal
-            imageCell.image.backgroundImage = imageArtBackgroundImage
-            
+            imageURL = imageURLs[indexPath.item]
+            imageCell.testImageView = masterImageView()
+            //imageCell.resizeImage()
+            //imageCell.content
         }
         return cell
     }
-
     
-    // MARK: - Images and Resizing
-    
-    var imageView = TrueImageView()
-    var imageSize: CGSize?
-    
-    let hearthstone = Bundle.main.url(forResource: "hearthstoneCardback", withExtension: "png")
     var imageURL: URL?
-    var image: UIImage?
     
-    func badFetchImage() {
-        imageURL = hearthstone
+    func masterImageView() -> TrueImageView {
+        let imageView = TrueImageView()
+        
+        let image = getHearthstoneImage()
+        let size = image?.size ?? CGSize.zero
+        
+        imageView.frame = CGRect(origin: CGPoint.zero, size: size)
+        imageView.backgroundImage = image
+        imageView.backgroundColor = UIColor.clear
+        
+        return imageView
+    }
+    
+    // Grab an image
+    func getHearthstoneImage() -> UIImage? {
+        //imageURL = hearthstone
         if let url = imageURL {
             let urlContents = try? Data(contentsOf: url)
             if let imageData = urlContents, url == self.imageURL {
-                imageArtBackgroundImage = UIImage(data: imageData)
+                return UIImage(data: imageData)
             }
         }
-    }
-    
-    var imageArtBackgroundImage: UIImage? {
-        get {
-            return imageView.backgroundImage
-        }
-        set {
-            imageView.backgroundImage = newValue
-            let size = newValue?.size ?? CGSize.zero
-            imageView.frame = CGRect(origin: CGPoint.zero, size: size)
-        }
+        return nil
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -80,6 +87,54 @@ class TrueImageViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return CGSize(width: width, height: width)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        
+    }
+    // MARK: - Create a new UIView to attach to every collectionView cell
+    
+    //let hearthstone = Bundle.main.url(forResource: "hearthstoneCardback", withExtension: "png")
+
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    
+    
+    
+    // MARK: - Images and Resizing
+    
+//    var imageView = TrueImageView()
+//    var imageSize: CGSize?
+//
+//
+//    var image: UIImage?
+//
+//    func badFetchImage() {
+//        imageURL = hearthstone
+//        if let url = imageURL {
+//            let urlContents = try? Data(contentsOf: url)
+//            if let imageData = urlContents, url == self.imageURL {
+//                imageArtBackgroundImage = UIImage(data: imageData)
+//            }
+//        }
+//    }
+    
+//    var imageArtBackgroundImage: UIImage? {
+//        get {
+//            return imageView.backgroundImage
+//        }
+//        set {
+//            imageView.backgroundImage = newValue
+//            let size = newValue?.size ?? CGSize.zero
+//            imageView.frame = CGRect(origin: CGPoint.zero, size: size)
+//        }
+//    }
+    
+
     
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

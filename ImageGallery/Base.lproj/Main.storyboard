@@ -138,7 +138,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pgs-KV-AdU" customClass="TrueImageView" customModule="ImageGallery" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                             </subviews>
@@ -151,9 +151,6 @@
                                             <constraint firstItem="Pgs-KV-AdU" firstAttribute="top" secondItem="IlB-J0-ra9" secondAttribute="top" id="l4W-1H-dK9"/>
                                             <constraint firstItem="Pgs-KV-AdU" firstAttribute="leading" secondItem="IlB-J0-ra9" secondAttribute="leading" id="ugB-I9-58I"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="image" destination="Pgs-KV-AdU" id="iOF-xI-W2o"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
