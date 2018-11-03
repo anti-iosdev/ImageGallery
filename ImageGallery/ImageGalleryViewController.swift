@@ -19,9 +19,19 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
     
     var emojis = "🍏🍎🍐🍊🍋🍌🍉🍇🍓🍈🍒🍑🍍🥥🥝🍅🍓🍈".map { String($0) }
     
+    // ------------------------------------------------------------------------
+    // imageCollectionView implemented with images
+    
+    
+    
+    
+    
+    
+    
+    
 
     // ------------------------------------------------------------------------
-    // imageCollectionView
+    // imageCollectionView implemented with strings
     
     // Initializing
     @IBOutlet weak var imageCollectionView: UICollectionView! {
@@ -96,8 +106,8 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
                         performDropWith coordinator: UICollectionViewDropCoordinator) {
         let destinationIndexPath = coordinator.destinationIndexPath ?? IndexPath(item: 0, section: 0)
         for item in coordinator.items {
+            // this is the LOCAL CASE
             if let sourceIndexPath = item.sourceIndexPath {
-                // drag is coming from self now
                 if let attributedString = item.dragItem.localObject as? NSAttributedString {
                     // batchupdates are for multiple insertions and deletions
                     collectionView.performBatchUpdates({
@@ -108,10 +118,24 @@ class ImageGalleryViewController: UIViewController, UICollectionViewDataSource, 
                     })
                     coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
                 }
+            } else {
+                // this is the NON-LOCAL case
+                let placeholderContext = coordinator.drop(
+                    item.dragItem,
+                    to: UICollectionViewDropPlaceholder(insertionIndexPath: destinationIndexPath, reuseIdentifier: "DropPlaceholderCell")
+                )
+                item.dragItem.itemProvider.loadObject(ofClass: NSAttributedString.self) { (provider, error) in
+                    DispatchQueue.main.async {
+                        if let attributedString = provider as? NSAttributedString {
+                            placeholderContext.commitInsertion(dataSourceUpdates: { insertionIndexPath in
+                                self.emojis.insert(attributedString.string, at: insertionIndexPath.item)
+                            })
+                        } else {
+                            placeholderContext.deletePlaceholder()
+                        }
+                    }
+                }
             }
         }
-        
     }
-    
-    
 }

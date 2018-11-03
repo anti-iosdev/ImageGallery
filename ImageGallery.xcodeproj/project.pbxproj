@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E916112A218C1D66005679EF /* TrueImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9161129218C1D66005679EF /* TrueImageViewController.swift */; };
+		E916112C218C2F1D005679EF /* TrueImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E916112B218C2F1D005679EF /* TrueImageView.swift */; };
+		E950F64E218BF87B009BC018 /* TrueImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E950F64D218BF87B009BC018 /* TrueImageCollectionViewCell.swift */; };
+		E950F650218BF963009BC018 /* hearthstoneCardback.png in Resources */ = {isa = PBXBuildFile; fileRef = E950F64F218BF963009BC018 /* hearthstoneCardback.png */; };
 		E97734212188F6CC009D5401 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97734202188F6CC009D5401 /* AppDelegate.swift */; };
 		E97734262188F6CC009D5401 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E97734242188F6CC009D5401 /* Main.storyboard */; };
 		E97734282188F6CD009D5401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97734272188F6CD009D5401 /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9161129218C1D66005679EF /* TrueImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueImageViewController.swift; sourceTree = "<group>"; };
+		E916112B218C2F1D005679EF /* TrueImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueImageView.swift; sourceTree = "<group>"; };
+		E950F64D218BF87B009BC018 /* TrueImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrueImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E950F64F218BF963009BC018 /* hearthstoneCardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hearthstoneCardback.png; sourceTree = "<group>"; };
 		E977341D2188F6CC009D5401 /* ImageGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E97734202188F6CC009D5401 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E97734252188F6CC009D5401 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,13 +70,17 @@
 		E977341F2188F6CC009D5401 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
-				E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */,
-				E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */,
+				E9161129218C1D66005679EF /* TrueImageViewController.swift */,
+				E950F64D218BF87B009BC018 /* TrueImageCollectionViewCell.swift */,
+				E916112B218C2F1D005679EF /* TrueImageView.swift */,
 				E97734242188F6CC009D5401 /* Main.storyboard */,
 				E977342C2188F6CD009D5401 /* Info.plist */,
 				E97734332188F729009D5401 /* Utilities.swift */,
 				E977343B21890BB3009D5401 /* Grid.swift */,
+				E97734372188FEA9009D5401 /* ImageGalleryViewController.swift */,
+				E9773439218904C1009D5401 /* ImageCollectionViewCell.swift */,
 				E97734352188F858009D5401 /* ImageGalleryTableViewController.swift */,
+				E950F64F218BF963009BC018 /* hearthstoneCardback.png */,
 				E97734322188F6E4009D5401 /* Supporting Files */,
 			);
 			path = ImageGallery;
@@ -144,6 +156,7 @@
 			files = (
 				E977342B2188F6CD009D5401 /* LaunchScreen.storyboard in Resources */,
 				E97734282188F6CD009D5401 /* Assets.xcassets in Resources */,
+				E950F650218BF963009BC018 /* hearthstoneCardback.png in Resources */,
 				E97734262188F6CC009D5401 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,11 +168,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E916112C218C2F1D005679EF /* TrueImageView.swift in Sources */,
 				E97734342188F729009D5401 /* Utilities.swift in Sources */,
 				E977343A218904C1009D5401 /* ImageCollectionViewCell.swift in Sources */,
+				E916112A218C1D66005679EF /* TrueImageViewController.swift in Sources */,
 				E97734382188FEA9009D5401 /* ImageGalleryViewController.swift in Sources */,
 				E97734362188F858009D5401 /* ImageGalleryTableViewController.swift in Sources */,
 				E97734212188F6CC009D5401 /* AppDelegate.swift in Sources */,
+				E950F64E218BF87B009BC018 /* TrueImageCollectionViewCell.swift in Sources */,
 				E977343C21890BB3009D5401 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
